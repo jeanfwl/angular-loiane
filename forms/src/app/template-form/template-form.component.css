@@ -1,0 +1,8 @@
+/* .ng-touched.ng-invalid:not(form) {
+  border-color: red;
+} */
+
+input.disabled {
+  background-color: #e9ecef;
+  opacity: 1;
+}

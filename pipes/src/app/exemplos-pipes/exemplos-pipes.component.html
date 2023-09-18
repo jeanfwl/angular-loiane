@@ -1,0 +1,46 @@
+<section hidden>
+  <h3>Exemplo Pipes!</h3>
+
+  <p>Informações do livro</p>
+  <ul>
+    <li>Título: {{ livro.titulo | camelCase }}</li>
+    <li>Estrelas: {{ livro.rating | number : "1.1-1" }}</li>
+    <li>Páginas: {{ livro.numeroPaginas | number }}</li>
+    <li>Preço: {{ livro.preco | currency : "BRL" }}</li>
+    <li>Data de Lançamento: {{ livro.dataLancamento | date }}</li>
+    <li>Link para compra: {{ livro.url }}</li>
+  </ul>
+  <pre>Livro: {{ livro | json }}</pre>
+
+  <div>
+    <input type="text" [(ngModel)]="filtro" />
+  </div>
+  <input type="text" #livroInput />
+  <button (click)="addLivro(livroInput.value)">Adicionar</button>
+
+  <h3>Pipe "puro"</h3>
+  <ul>
+    <li *ngFor="let lv of livros | filtroArray : filtro">
+      {{ lv }}
+    </li>
+  </ul>
+
+  <h3>Pipe "impuro"</h3>
+  <ul>
+    <li *ngFor="let lv of livros | filtroArrayImpuro : filtro">
+      {{ lv }}
+    </li>
+  </ul>
+
+  <h3>Maneira de correta de usar filtro nos projetos</h3>
+  <ul>
+    <li *ngFor="let lv of obterLivros()">
+      {{ lv }}
+    </li>
+  </ul>
+</section>
+
+<h3>Pipes assícronos</h3>
+
+<p>Varíavel async via Promise: {{ valorAsyncPromise | async }}</p>
+<p>Varíavel async via Observable: {{ valorAsyncObservable | async }}</p>

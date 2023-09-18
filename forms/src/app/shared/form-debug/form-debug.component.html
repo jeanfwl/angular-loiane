@@ -1,0 +1,13 @@
+<section class="text-bg-dark p-2 rounded-start-1 mt-2">
+  <h3>Form Debug</h3>
+  <pre>
+    Form válido: {{ form.valid }}
+  </pre>
+  <pre>
+    Form enviado: {{ getFormEnviado() }}
+  </pre>
+  <pre>
+    Valores do form:
+    {{ form.value | json }}
+  </pre>
+</section>

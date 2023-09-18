@@ -1,0 +1,24 @@
+<div class="list-group mb-2">
+  <a
+    class="list-group-item list-group-item-action"
+    *ngFor="let curso of cursos"
+    [routerLink]="[curso.id]"
+    routerLinkActive="active"
+  >
+    {{ curso.nome }}
+  </a>
+  <a class="list-group-item list-group-item-action" [routerLink]="[3]"
+    >Curso que não existe</a
+  >
+</div>
+<div class="d-flex align-items-center justify-content-between">
+  <p class="mb-0">Página atual {{ pagina }}</p>
+  <div>
+    <button class="btn btn-light" (click)="handleChangePage('PREV')">
+      Prev
+    </button>
+    <button class="btn btn-light" (click)="handleChangePage('NEXT')">
+      Next
+    </button>
+  </div>
+</div>

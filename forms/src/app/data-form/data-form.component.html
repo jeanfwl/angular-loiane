@@ -1,0 +1,304 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="row mb-2">
+    <app-input-field
+      class="col-12"
+      type="text"
+      id="nome"
+      label="Nome"
+      [errorClass]="getClassesInputInvalidOrValid('nome')"
+      formControlName="nome"
+      [control]="$any(form.get('nome'))"
+    ></app-input-field>
+  </div>
+
+  <!-- <div class="row mb-2">
+    <div class="col-12">
+      <label for="nome" class="form-label">Nome</label>
+      <input
+        type="text"
+        id="nome"
+        class="form-control"
+        placeholder="Nome"
+        formControlName="nome"
+        [ngClass]="getClassesInputInvalidOrValid('nome')"
+      />
+      <app-error-message label="Nome" [control]="$any(form.get('nome'))">
+      </app-error-message>
+    </div>
+  </div> -->
+  <div class="row mb-2">
+    <div class="col-12">
+      <label for="email" class="form-label">E-mail</label>
+      <input
+        type="email"
+        formControlName="email"
+        id="email"
+        class="form-control"
+        placeholder="email@email.com"
+        [ngClass]="getClassesInputInvalidOrValid('email')"
+      />
+      <app-control-validation-error
+        [invalido]="this.verificaInputRequired('email')"
+        mensagem="E-mail inválido!"
+      ></app-control-validation-error>
+      <app-control-validation-error
+        [invalido]="this.form.get('email')?.status === 'PENDING'"
+        mensagem="Validando e-mail..."
+      ></app-control-validation-error>
+      <app-control-validation-error
+        [invalido]="this.form.get('email')?.status === 'VALID'"
+        mensagem="E-mail válido."
+      ></app-control-validation-error>
+      <app-control-validation-error
+        [invalido]="this.form.get('email')?.hasError('emailInvalido') ?? false"
+        mensagem="E-mail já cadastrado!"
+      ></app-control-validation-error>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-12">
+      <label for="confirmacaoEmail" class="form-label"
+        >Confirmação e-mail</label
+      >
+      <input
+        type="email"
+        formControlName="confirmacaoEmail"
+        id="confirmacaoEmail"
+        class="form-control"
+        placeholder="email@email.com"
+        [ngClass]="getClassesInputInvalidOrValid('confirmacaoEmail')"
+      />
+      <app-error-message
+        label="Confirmação de e-mail"
+        [control]="$any(form.get('confirmacaoEmail'))"
+      >
+      </app-error-message>
+      <!-- <app-control-validation-error
+        [invalido]="
+          this.form.get('confirmacaoEmail')?.hasError('equalsTo') ?? false
+        "
+        mensagem="Os e-mails não são iguais!"
+      ></app-control-validation-error> -->
+      <!-- <app-control-validation-error
+        [invalido]="this.verificaInputRequired('confirmacaoEmail')"
+        mensagem="E-mail inválido!"
+      ></app-control-validation-error> -->
+    </div>
+  </div>
+
+  <div formGroupName="endereco">
+    <div class="row mb-2 g-2">
+      <div class="col-12 col-md-3">
+        <label for="cep" class="form-label">CEP</label>
+        <input
+          id="cep"
+          formControlName="cep"
+          type="text"
+          class="form-control"
+          [ngClass]="getClassesInputInvalidOrValid('endereco.cep')"
+        />
+        <!-- (blur)="consultarCEP()" -->
+        <app-error-message
+          label="CEP"
+          [control]="$any(form.get('endereco.cep'))"
+        >
+        </app-error-message>
+      </div>
+      <div class="col-12 col-md-3">
+        <label for="numero" class="form-label">Número</label>
+        <input
+          id="numero"
+          formControlName="numero"
+          type="text"
+          class="form-control"
+          [ngClass]="getClassesInputInvalidOrValid('endereco.numero')"
+        />
+        <app-error-message
+          label="Número"
+          [control]="$any(form.get('endereco.numero'))"
+        >
+        </app-error-message>
+      </div>
+      <div class="col-12 col-md-6">
+        <label for="complemento" class="form-label">Complemento</label>
+        <input
+          id="complemento"
+          formControlName="complemento"
+          type="text"
+          class="form-control"
+        />
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-12">
+        <label for="rua" class="form-label">Rua</label>
+        <input
+          id="rua"
+          formControlName="rua"
+          type="text"
+          class="form-control disabled"
+          [ngClass]="getClassesInputInvalidOrValid('endereco.rua')"
+          readonly
+        />
+        <app-error-message
+          label="Rua"
+          [control]="$any(form.get('endereco.rua'))"
+        >
+        </app-error-message>
+      </div>
+    </div>
+    <div class="row mb-2 g-2">
+      <div class="col-12 col-md-6">
+        <label for="bairro" class="form-label">Bairro</label>
+        <input
+          id="bairro"
+          formControlName="bairro"
+          type="text"
+          class="form-control"
+          [ngClass]="getClassesInputInvalidOrValid('endereco.bairro')"
+        />
+        <app-error-message
+          label="Bairro"
+          [control]="$any(form.get('endereco.bairro'))"
+        >
+        </app-error-message>
+      </div>
+      <div class="col-12 col-md-3">
+        <label for="cidade" class="form-label">Cidade</label>
+        <select
+          id="cidade"
+          formControlName="cidade"
+          class="form-select"
+          [ngClass]="getClassesInputInvalidOrValid('endereco.cidade')"
+        >
+          <option *ngFor="let cidade of cidades" [value]="cidade.nome">
+            {{ cidade.nome }}
+          </option>
+        </select>
+        <app-error-message
+          label="Cidade"
+          [control]="$any(form.get('endereco.cidade'))"
+        >
+        </app-error-message>
+      </div>
+      <div class="col-12 col-md-3">
+        <label for="estado" class="form-label">Estado</label>
+        <select
+          id="estado"
+          formControlName="estado"
+          class="form-select"
+          [ngClass]="getClassesInputInvalidOrValid('endereco.estado')"
+        >
+          <option *ngFor="let estado of estados" [value]="estado.sigla">
+            {{ estado.nome }}
+          </option>
+        </select>
+        <app-error-message
+          label="Estado"
+          [control]="$any(form.get('endereco.estado'))"
+        >
+        </app-error-message>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-12 col-md-3">
+      <label for="cargo" class="form-label">Cargo</label>
+      <select
+        id="cargo"
+        formControlName="cargo"
+        class="form-select"
+        [compareWith]="compararCargos"
+      >
+        <option *ngFor="let cargo of cargos" [ngValue]="cargo">
+          {{ cargo.desc }}
+        </option>
+      </select>
+    </div>
+    <div class="col-12 col-md-3">
+      <label for="tecnologias" class="form-label">Tecnologias</label>
+      <select
+        id="tecnologias"
+        formControlName="tecnologias"
+        class="form-select"
+        multiple
+      >
+        <option
+          *ngFor="let tecnologia of tecnologias"
+          [value]="tecnologia.nome"
+        >
+          {{ tecnologia.desc }}
+        </option>
+      </select>
+    </div>
+    <div class="col-12 col-md-3">
+      <label class="form-label" for="newsletter">Newsletter</label>
+      <div id="newsletter">
+        <div
+          class="form-check form-check-inline"
+          *ngFor="let option of newsletterOptions"
+        >
+          <label class="form-check-label">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="newsletter"
+              [value]="option.valor"
+            />
+            {{ option.desc }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-12 col-md-3">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [ngClass]="getClassesInputInvalidOrValid('termos')"
+          id="termos"
+          formControlName="termos"
+        />
+        <label class="form-check-label" for="termos"> Aceito os termos. </label>
+        <div class="invalid-feedback">
+          Você precisa aceitar os termos para prosseguir.
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <label class="form-label" for="frameworks">Frameworks</label>
+      <div
+        id="frameworks"
+        formArrayName="frameworks"
+        [ngClass]="getClassesInputInvalidOrValid('frameworks')"
+      >
+        <div
+          class="form-check form-check-inline"
+          *ngFor="let _ of frameworksForms.controls; let i = index"
+        >
+          <label class="form-check-label">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [formControlName]="i"
+            />
+            {{ frameworks[i] }}
+          </label>
+        </div>
+      </div>
+      <div class="invalid-feedback">Selecione pelo menos 1 framework.</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+  <button class="ms-1 btn btn-secondary" (click)="resetarForm()">
+    Cancelar
+  </button>
+  <button class="ms-1 btn btn-light" (click)="setarCargo()">Cargo</button>
+  <button class="ms-1 btn btn-light" (click)="setarTecnologias()">
+    Tecnologias
+  </button>
+</form>
+<app-form-debug [form]="form"></app-form-debug>

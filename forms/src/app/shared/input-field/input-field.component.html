@@ -1,0 +1,14 @@
+<label [attr.for]="id" class="form-label">
+  {{ label }}
+</label>
+<input
+  [type]="type"
+  [id]="id"
+  class="form-control"
+  placeholder="{{ label }}..."
+  [(ngModel)]="value"
+  (blur)="onTouchedCb(null)"
+  [ngClass]="errorClass"
+  [readonly]="!!isReadOnly"
+/>
+<app-error-message [label]="label" [control]="control"></app-error-message>

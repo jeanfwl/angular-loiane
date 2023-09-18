@@ -1,0 +1,71 @@
+<!-- <section>
+  <article>
+    <h3>Interpolation</h3>
+    <p>{{ url }}</p>
+    <p>Valor: {{ getValor() }}</p>
+    <p>Valor maior que 0? {{ getValor() > 0 ? 'Maior' : 'Menor' }}</p>
+  </article>
+  <article>
+    <h3>Imagens com Interpolation e Property Binding</h3>
+    <img src="{{ urlImagem }}" alt="Imagem BR">
+    <img [src]="urlImagem" alt="Imagem BR" [attr.href]="urlImagem">
+  </article>
+</section> -->
+<!-- <section>
+  <article>
+    <h3>Class e Style binding</h3>
+    <p>
+      Selecione o tipo de alerta
+      <select #classe (change)="0">
+        <option value="alert-success">Sucesso</option>
+        <option value="alert-warning">Alerta</option>
+        <option value="alert-danger">Perigo</option>
+        <option value="alert-info">Informação</option>
+      </select>
+    </p>
+    <div class="alert {{ classe.value }}" role="alert">
+      Texto aleatório com o alerta.
+    </div>
+    <hr>
+    <div class="alert" role="alert" [class.alert-success]="classe.value === 'alert-success'">
+      Alerta de sucesso.
+    </div>
+    <div class="alert" role="alert" [class.alert-danger]="classe.value === 'alert-danger'">
+      Alerta de perigo.
+    </div>
+    <hr>
+    <div class="alert alert-success" role="alert" [style.display]="classe.value === 'alert-success' ? 'block' : 'none'">
+      Alerta com display apenas para sucesso.
+    </div>
+  </article>
+</section> -->
+<!-- <section>
+  <article>
+    <h3>Event binding</h3>
+    <button class="btn btn-primary" (click)="handleClick()">Me clique</button>
+    <div class="mt-2">
+      <input type="text" class="form-control" (keyup)="handleKeyUp($event)" (keyup.enter)="handleSaveValue(inputValor.value)" (blur)="handleSaveValue(inputValor.value)" #inputValor>
+    </div>
+    <div class="mt-2">
+      <p>
+        Valor Atual: {{ valorAtual }}
+      </p>
+      <p>
+        Valor Salvo: {{ valorSalvo }}
+      </p>
+    </div>
+    <div class="mt-2">
+      <span (mouseover)="handleMouseOverOut()" (mouseout)="handleMouseOverOut()" [class.text-bg-warning]="isMouseOver">Passe o mouse sobre mim</span>
+    </div>
+  </article>
+</section> -->
+
+<!-- <app-meu-form></app-meu-form> -->
+
+<section>
+  <h3>Input/Output Properties</h3>
+  <app-curso [nome]="nomeCurso"></app-curso>
+  <app-curso nome="Angular 2"></app-curso>
+
+  <contador (mudouValor)="handleMudouValor($event)" [contador]="valorInicial"></contador>
+</section>

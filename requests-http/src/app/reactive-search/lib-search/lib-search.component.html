@@ -1,0 +1,36 @@
+<div class="container search-table">
+  <div class="search-box mb-2">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <div class="input-group">
+          <input
+            type="text"
+            [formControl]="queryControl"
+            class="form-control"
+            placeholder="Pesquisar libs..."
+          />
+          <button class="btn btn-dark" (click)="onSearch()">Pesquisar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="search-list">
+    <h4>{{ total }} entries found.</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let lib of results$ | async">
+          <tr>
+            <td>{{ lib.name }}</td>
+            <td>{{ lib.description }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

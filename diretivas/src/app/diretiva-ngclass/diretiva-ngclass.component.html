@@ -1,0 +1,22 @@
+<div class="container">
+  <!-- Sem ngClass -->
+  <h1>
+    <i
+      class="bi"
+      [class.bi-star]="!favorito"
+      [class.bi-star-fill]="favorito"
+      (click)="toggleFavorito()"
+    ></i>
+  </h1>
+  <!-- Com ngClass -->
+  <h1>
+    <i
+      class="bi"
+      [ngClass]="{
+        'bi-star': !favorito,
+        'bi-star-fill': favorito
+      }"
+      (click)="toggleFavorito()"
+    ></i>
+  </h1>
+</div>

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "curso-angular-loiane-5540a"
+  },
+  "targets": {
+    "curso-angular-loiane-5540a": {
+      "hosting": {
+        "requests-http": [
+          "curso-angular-loiane-5540a"
+        ]
+      }
+    }
+  }
+}

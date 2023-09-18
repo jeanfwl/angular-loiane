@@ -1,0 +1,44 @@
+<nav
+  *ngIf="mostrarMenu"
+  class="navbar navbar-expand text-bg-dark mb-2 navbar-dark"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="">Routes Ng2</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav">
+        <li routerLinkActive="fw-bold">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li routerLinkActive="fw-bold">
+          <a class="nav-link" routerLink="">Home</a>
+        </li>
+        <li routerLinkActive="fw-bold">
+          <a class="nav-link" routerLink="/cursos" [queryParams]="{ pagina: 1 }"
+            >Cursos</a
+          >
+        </li>
+        <!-- <li routerLinkActive="fw-bold">
+          <a class="nav-link" [routerLink]="['curso', cursoId.value]"
+            >Curso pelo ID</a
+          >
+        </li> -->
+        <li routerLinkActive="fw-bold">
+          <a class="nav-link" routerLink="/alunos">Alunos</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <!-- <div class="row mb-3">
+    <div class="col-6">
+      <label class="form-label">Digite um ID de curso.</label>
+      <input type="text" class="form-control" #cursoId (input)="(0)" />
+    </div>
+  </div> -->
+  <div class="row">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

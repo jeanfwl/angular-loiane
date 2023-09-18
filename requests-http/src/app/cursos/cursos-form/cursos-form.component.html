@@ -1,0 +1,17 @@
+<form class="container" [formGroup]="form">
+  <div class="row mb-2">
+    <div class="col-12">
+      <label for="nome" class="form-label">Nome do Curso</label>
+      <input
+        id="nome"
+        formControlName="nome"
+        [ngClass]="getClassesInputInvalidOrValid('nome')"
+        type="text"
+        class="form-control"
+      />
+      <div class="invalid-feedback">O nome do curso é obrigatório</div>
+    </div>
+  </div>
+  <button class="btn btn-primary me-2" (click)="onSubmit()">Salvar</button>
+  <button class="btn btn-light" (click)="resetarForm()">Cancelar</button>
+</form>

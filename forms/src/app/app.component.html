@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand text-bg-dark mb-2 navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="">Angular Forms</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav">
+        <li routerLinkActive="fw-bold">
+          <a class="nav-link" routerLink="/templateForm"
+            >Form - Template Driven</a
+          >
+        </li>
+        <li routerLinkActive="fw-bold">
+          <a class="nav-link" routerLink="/dataForm">Form - Data Driven</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

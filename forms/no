@@ -1,0 +1,41 @@
+[33mcommit 47a7eb4971217f4c881b6028a41510a744eb60ff[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Jean <jeanttalar@gmail.com>
+Date:   Tue Aug 1 09:07:16 2023 -0300
+
+    Utilizado método nativo do FormGroup para validar recursivamente todos os inputs
+
+[33mcommit 481533d1be5151d3d0613bf577570da41c2e496f[m
+Author: Jean <jeanttalar@gmail.com>
+Date:   Tue Aug 1 09:06:48 2023 -0300
+
+    Adicionado metodo para validar todos os campos com recursividade
+
+[33mcommit 2848d01ed1b323e703d2998325e77e02566cd580[m
+Author: Jean <jeanttalar@gmail.com>
+Date:   Mon Jul 31 14:45:16 2023 -0300
+
+    Atualizado form reativo data driven, como estava o template driven
+
+[33mcommit 557f8dd727f8678bb8cc1b081c4ac4ae22a582ff[m
+Author: Jean <jeanttalar@gmail.com>
+Date:   Thu Jul 27 14:14:08 2023 -0300
+
+    Finalizado módulo forms (template driven)
+
+[33mcommit fec66b30755eaae1aefcf1d8b769bbcea479ff9f[m
+Author: Jean <jeanttalar@gmail.com>
+Date:   Thu Jul 27 09:16:32 2023 -0300
+
+    Adicionado form debug e campos de endereço no form template driven
+
+[33mcommit fa315b0deff213c6f2166d3a8fde38cc53b44546[m
+Author: Jean <jeanttalar@gmail.com>
+Date:   Wed Jul 26 13:49:29 2023 -0300
+
+    Adicionad ngx-bootstrap e iniciado template de formulários
+
+[33mcommit e1c1bdc941ccdd580fe9031b7cf5940c6d69a100[m
+Author: Jean <jeanttalar@gmail.com>
+Date:   Wed Jul 26 08:29:40 2023 -0300
+
+    initial commit
